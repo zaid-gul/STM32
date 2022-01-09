@@ -1,8 +1,18 @@
+/**
+*********************************************************************************************************
+*
+*  @file    gpio_driver.h
+*  @version 1.0
+*  @author  Zaid Gul
+*  
+*********************************************************************************************************
+*/
 #ifndef GPIO_DRIVER_H
 #define GPIO_DRIVER_H
 
+/***********************************/
 #include "stm32f4xx.h"                  // Device header
-
+/***********************************/
 
 /***************************************************************************************************************************************************************/
 /*																																																																														 */
@@ -43,13 +53,13 @@
 
 /***************************************************************************************************************************************************************/
 /*																																																																														 */
-/*											          Data Structure for GPIO pin Initialization																																									 */
+/*											      Data Structure for GPIO pin Initialization																																									     */
 /*																																																																														 */
 /***************************************************************************************************************************************************************/
 
 typedef struct
 {
-	uint32_t Pin;   					//GPIO pin to be configured
+	uint16_t Pin;   					//GPIO pin to be configured
 	uint32_t Mode;  					//operating mode for the specific pin
 	uint32_t OP_Type;   			//Output type for the selected pin 
 	uint32_t Speed;     			//operating speed of the pin
@@ -60,7 +70,7 @@ typedef struct
 
 /***************************************************************************************************************************************************************/
 /*																																																																														 */
-/*											          Driver exposed APIs																																									 */
+/*											     Driver exposed APIs																																									                             */
 /*																																																																														 */
 /***************************************************************************************************************************************************************/
 /**
@@ -95,8 +105,47 @@ void GPIO_WRITE(GPIO_TypeDef *GPIOx, uint16_t Pin_no, uint8_t value);
 	*@param alt_func_val 	 : alternate function
 	*@retval None
 	*/
-void GPIO_SET_ALT(GPIO_TypeDef *GPIOx, uint16_t Pin_no, uint16_t alt_func_val);
+void GPIO_SET_ALT(GPIO_TypeDef *GPIOx, uint16_t Pin_no, uint32_t alt_func_val);
 
+/***************************************************************************************************************************************************************/
+/*																																																																														 */
+/*											     																																									                             */
+/*																																																																														 */
+/***************************************************************************************************************************************************************/
+/**
+	*@brief  Configures the mode of a pin : input, output, alt or analog mode 
+	*@param  *GPIOx : GPIO Port Base Dddress
+	*@param  Pin_no : GPIO Pin Number 
+	*@param  Mode   : mode to be configured
+	*@retval None
+	*/
+void PIN_MODE(GPIO_TypeDef *GPIOx, uint16_t Pin_no, uint32_t Mode);
 
+/**
+	*@brief  Configures the speed of a pin 
+	*@param  *GPIOx : GPIO Port Base Dddress
+	*@param  Pin_no : GPIO Pin Number 
+	*@param  Mode   : mode to be configured
+	*@retval None
+	*/
+void PIN_SPEED(GPIO_TypeDef *GPIOx, uint16_t Pin_no, uint32_t Speed);
+
+/**
+	*@brief  Configures the output type of a pin 
+	*@param  *GPIOx    : GPIO Port Base Dddress
+	*@param  Pin_no 	 : GPIO Pin Number 
+	*@param  OP_Type   : output type
+	*@retval None
+	*/
+void OUTPUT_TYPE(GPIO_TypeDef *GPIOx, uint16_t Pin_no, uint32_t OP_Type);
+
+/**
+	*@brief  Activates the internal pull up or pull down resistor
+	*@param  *GPIOx 	: GPIO Port Base Dddress
+	*@param  Pin_no 	: GPIO Pin Number 
+	*@param  Pupdwn   : pull up or pull down resistor 
+	*@retval None
+	*/
+void PULL_UP_DOWN(GPIO_TypeDef *GPIOx, uint16_t Pin_no, uint32_t Pupdwn);
 
 #endif
