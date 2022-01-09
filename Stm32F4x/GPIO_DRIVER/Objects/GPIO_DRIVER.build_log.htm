@@ -17,20 +17,27 @@ Library Manager: ArmAr.exe V6.16
 Hex Converter:   FromElf.exe V6.16
 CPU DLL:         SARMCM3.DLL V5.36.0.0
 Dialog DLL:      DCM.DLL V1.17.3.0
-Target DLL:      UL2CM3.DLL V1.164.0.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
 Dialog DLL:      TCM.DLL V1.53.0.0
  
 <h2>Project:</h2>
 E:\SOFTWARE DATA\ARM_Keil\Stm32F4x\GPIO_DRIVER\GPIO_DRIVER.uvprojx
-Project File Date:  01/06/2022
+Project File Date:  01/09/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.16', folder: 'E:\Softwares\Arm_Keil\ARM\ARMCLANG\Bin'
 Build target 'STM32F4x'
-compiling gpio_driver.c...
+compiling main.c...
+led.c(11): warning: In file included from...
+./led.h(14): warning: In file included from...
+./gpio_driver.h(63): warning: padding struct 'GPIO_PIN_CONFIG' with 2 bytes to align 'Mode' [-Wpadded]
+        uint32_t Mode;                                          //operating mode for the specific pin
+                 ^
+1 warning generated.
+compiling led.c...
 linking...
-Program Size: Code=380 RO-data=468 RW-data=0 ZI-data=1632  
-".\Objects\GPIO_DRIVER.axf" - 0 Error(s), 0 Warning(s).
+Program Size: Code=636 RO-data=468 RW-data=0 ZI-data=1632  
+".\Objects\GPIO_DRIVER.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -61,7 +68,7 @@ Package Vendor: Keil
       Include file:  Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f446xx.s
       Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

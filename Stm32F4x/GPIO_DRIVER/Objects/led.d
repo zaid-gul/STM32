@@ -1,4 +1,4 @@
-./objects/main.o: main.c led.h gpio_driver.h \
+./objects/led.o: led.c led.h gpio_driver.h \
   E:\Softwares\Arm_Keil\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h \
   E:\Softwares\Arm_Keil\Packs\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f446xx.h \
   E:\Softwares\Arm_Keil\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm4.h \
